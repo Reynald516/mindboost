@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Research & Cognitive Health Update | Memory & Focus Support</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F8F9FA;
+    --white: #FFFFFF;
+    --navy: #1A365D;
+    --navy-light: #2A4A7F;
+    --gold: #F59E0B;
+    --gold-dark: #D97706;
+    --text: #2D3748;
+    --muted: #718096;
+    --border: #E2E8F0;
+    --green: #38A169;
+    --light-blue: #EBF8FF;
+    --accent-blue: #3182CE;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: var(--accent-blue); }
+
+  /* ─── TOP BAR ─── */
+  .topbar {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── LAYOUT ─── */
+  .wrap {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  section { padding: 28px 0; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--navy);
+    padding: 40px 20px 44px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #CBD5E0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 6vw, 36px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+    margin-bottom: 16px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 span {
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: #A0AEC0;
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* ─── VISUAL BOX ─── */
+  .visual-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 28px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .visual-img {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #1A365D 0%, #2A4A7F 40%, #1E3A5F 70%, #0F2744 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .visual-img::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(245,158,11,0.08) 0%, transparent 70%);
+  }
+
+  .neuron-svg {
+    width: 80px;
+    height: 80px;
+    opacity: 0.9;
+  }
+
+  .visual-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Wave bars */
+  .wave-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 36px;
+  }
+
+  .wb {
+    width: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    opacity: 0.8;
+    animation: wb 1.3s ease-in-out infinite;
+  }
+
+  @keyframes wb {
+    0%,100% { transform: scaleY(0.2); }
+    50% { transform: scaleY(1); }
+  }
+
+  .wb:nth-child(1){height:12px;animation-delay:.0s}
+  .wb:nth-child(2){height:22px;animation-delay:.07s}
+  .wb:nth-child(3){height:32px;animation-delay:.14s}
+  .wb:nth-child(4){height:36px;animation-delay:.21s}
+  .wb:nth-child(5){height:28px;animation-delay:.28s}
+  .wb:nth-child(6){height:36px;animation-delay:.35s}
+  .wb:nth-child(7){height:32px;animation-delay:.42s}
+  .wb:nth-child(8){height:36px;animation-delay:.49s}
+  .wb:nth-child(9){height:24px;animation-delay:.56s}
+  .wb:nth-child(10){height:14px;animation-delay:.63s}
+  .wb:nth-child(11){height:28px;animation-delay:.7s}
+  .wb:nth-child(12){height:36px;animation-delay:.77s}
+  .wb:nth-child(13){height:20px;animation-delay:.84s}
+
+  .visual-caption {
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    font-style: italic;
+  }
+
+  /* ─── PROBLEM SECTION ─── */
+  .problem-section {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    margin-bottom: 10px;
+  }
+
+  .problem-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .problem-section p {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ─── CHECKLIST ─── */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .check-icon {
+    width: 22px;
+    height: 22px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .check-icon::after {
+    content: '✓';
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ─── SCIENCE BOX ─── */
+  .science-box {
+    background: var(--light-blue);
+    border-left: 4px solid var(--accent-blue);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 20px;
+    margin: 24px 0;
+  }
+
+  .science-box p {
+    font-size: 16px;
+    color: var(--navy);
+    line-height: 1.7;
+  }
+
+  .science-box strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ─── TESTIMONIAL ─── */
+  .testimonial {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    position: relative;
+  }
+
+  .testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -8px; left: 20px;
+    font-size: 64px;
+    color: var(--gold);
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    padding-top: 16px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--accent-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .author-info {
+    font-size: 14px;
+  }
+
+  .author-name {
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+  }
+
+  .author-detail {
+    color: var(--muted);
+    display: block;
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  /* ─── SOCIAL PROOF ─── */
+  .social-proof {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .sp-item {
+    text-align: center;
+  }
+
+  .sp-num {
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .sp-label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .sp-divider {
+    width: 1px;
+    background: var(--border);
+    margin: 4px 0;
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    text-align: center;
+    padding: 8px 0 32px;
+  }
+
+  .cta-label {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 58px;
+    padding: 16px 24px;
+    background: var(--gold);
+    color: #1A1A1A;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(245,158,11,0.4);
+    animation: btnpulse 2.5s ease-in-out infinite;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.15s, transform 0.1s;
+    margin-bottom: 12px;
+  }
+
+  .cta-btn:active {
+    transform: scale(0.98);
+    background: var(--gold-dark);
+  }
+
+  @keyframes btnpulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(245,158,11,0.4); }
+    50% { box-shadow: 0 4px 32px rgba(245,158,11,0.65); }
+  }
+
+  .cta-btn svg {
+    flex-shrink: 0;
+  }
+
+  .cta-sub {
+    font-size: 14px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .social-count {
+    font-size: 14px;
+    color: var(--green);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .social-count::before {
+    content: '✓';
+    background: var(--green);
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  /* ─── DISCLAIMER ─── */
+  .disclaimer {
+    background: #FFF8E7;
+    border: 1px solid #FDE68A;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+  }
+
+  .disclaimer p {
+    font-size: 13px;
+    color: #92400E;
+    line-height: 1.6;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 28px 20px 40px;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .footer-fb {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+    padding: 0 8px;
+  }
+
+  .footer-health {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: #CBD5E0;
+  }
+
+  /* ─── MODAL / LEGAL SECTION ─── */
+  .legal-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    text-align: left;
+  }
+
+  .legal-section h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .legal-section p, .legal-section ul {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+
+  .legal-section ul {
+    padding-left: 20px;
+  }
+
+  .legal-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .legal-tab {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 13px;
+    cursor: pointer;
+    background: var(--bg);
+    color: var(--muted);
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.15s;
+  }
+
+  .legal-tab.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+  }
+
+  .legal-content { display: none; }
+  .legal-content.active { display: block; }
+
+  /* ─── FADE IN ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero { animation: fadeUp 0.4s ease both; }
+  .problem-section { animation: fadeUp 0.4s 0.1s ease both; }
+  .visual-box { animation: fadeUp 0.4s 0.15s ease both; }
+  .science-box { animation: fadeUp 0.4s 0.2s ease both; }
+  .testimonial { animation: fadeUp 0.4s 0.25s ease both; }
+  .social-proof { animation: fadeUp 0.4s 0.3s ease both; }
+  .cta-section { animation: fadeUp 0.4s 0.35s ease both; }
+
+  @media (max-width: 400px) {
+    .hero h1 { font-size: 22px; }
+    .social-proof { gap: 0; }
+    .sp-num { font-size: 22px; }
+    .footer-links { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">Research &amp; Cognitive Health Update</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-tag">Neuroscience-Based Audio Technology</div>
+    <h1><span style="color:#CBD5E0;font-weight:400;font-size:0.7em;display:block;margin-bottom:6px;letter-spacing:0.08em;text-transform:uppercase;">REVIEW:</span>A Simple 7-Minute Audio Method That May Support <span>Memory & Mental Clarity</span></h1>
+    <p class="hero-sub">Researchers found that a specific audio frequency — delivered through everyday headphones — may help support Gamma brainwave activity associated with sharper focus and clearer memory recall.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- VISUAL -->
+  <div class="visual-box">
+    <div class="visual-img">
+      <!-- Inline SVG neuron illustration -->
+      <svg class="neuron-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="14" fill="rgba(245,158,11,0.15)" stroke="#F59E0B" stroke-width="1.5"/>
+        <circle cx="40" cy="40" r="6" fill="#F59E0B" opacity="0.9"/>
+        <line x1="40" y1="26" x2="40" y2="10" stroke="#5BC4F5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="40" y1="54" x2="40" y2="70" stroke="#5BC4F5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="26" y1="40" x2="10" y2="40" stroke="#5BC4F5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="54" y1="40" x2="70" y2="40" stroke="#5BC4F5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="29" y1="29" x2="17" y2="17" stroke="#5BC4F5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="51" y1="51" x2="63" y2="63" stroke="#5BC4F5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="51" y1="29" x2="63" y2="17" stroke="#5BC4F5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="29" y1="51" x2="17" y2="63" stroke="#5BC4F5" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="40" cy="10" r="3" fill="#5BC4F5" opacity="0.7"/>
+        <circle cx="40" cy="70" r="3" fill="#5BC4F5" opacity="0.7"/>
+        <circle cx="10" cy="40" r="3" fill="#5BC4F5" opacity="0.7"/>
+        <circle cx="70" cy="40" r="3" fill="#5BC4F5" opacity="0.7"/>
+        <circle cx="17" cy="17" r="2.5" fill="#F59E0B" opacity="0.6"/>
+        <circle cx="63" cy="63" r="2.5" fill="#F59E0B" opacity="0.6"/>
+        <circle cx="63" cy="17" r="2.5" fill="#F59E0B" opacity="0.6"/>
+        <circle cx="17" cy="63" r="2.5" fill="#F59E0B" opacity="0.6"/>
+      </svg>
+      <div class="wave-row">
+        <div class="wb"></div><div class="wb"></div><div class="wb"></div>
+        <div class="wb"></div><div class="wb"></div><div class="wb"></div>
+        <div class="wb"></div><div class="wb"></div><div class="wb"></div>
+        <div class="wb"></div><div class="wb"></div><div class="wb"></div>
+        <div class="wb"></div>
+      </div>
+    </div>
+    <div class="visual-caption">Scientific visualization of neural frequency alignment — 40Hz Gamma wave range</div>
+  </div>
+
+  <!-- PROBLEM -->
+  <div class="problem-section">
+    <div class="section-label">What Science Says</div>
+    <h2>Why Your Brain May Not Be Performing at Its Best</h2>
+    <p>After age 40, many people notice changes in their ability to recall names, stay focused, or think as quickly as they used to. Research suggests this is often linked to disrupted Gamma brainwave activity.</p>
+
+    <div class="science-box">
+      <p><strong>What are Gamma waves?</strong> Gamma brainwaves (approximately 40Hz) are the frequency associated with peak cognitive performance — sharp memory, fast thinking, and clear focus. Modern stress, poor sleep, and screen overload can significantly suppress this activity.</p>
+    </div>
+
+    <p style="margin-bottom:16px; font-size:17px; color:#4A5568;">Users of this audio technology report experiencing:</p>
+    <ul class="checklist">
+      <li><div class="check-icon"></div>Clearer recall of names, dates, and details</li>
+      <li><div class="check-icon"></div>Improved ability to concentrate for longer periods</li>
+      <li><div class="check-icon"></div>Feeling mentally "sharper" and more present</li>
+      <li><div class="check-icon"></div>Reduced feelings of mental fog and fatigue</li>
+      <li><div class="check-icon"></div>Better sleep quality and morning mental clarity</li>
+    </ul>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="testimonial">
+    <p class="testimonial-text">I'm 63 years old and I honestly thought forgetting names and losing my train of thought was just part of aging. After two weeks with this audio program, my wife said I seemed sharper. My doctor was surprised at how well I scored on a routine cognitive screening. I'm genuinely glad I found this.</p>
+    <div class="testimonial-author">
+      <div class="author-avatar">R</div>
+      <div class="author-info">
+        <span class="author-name">Robert M.</span>
+        <span class="author-detail">Retired Educator, Phoenix AZ</span>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF -->
+  <div class="social-proof">
+    <div class="sp-item">
+      <span class="sp-num">80K+</span>
+      <span class="sp-label">Users</span>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <span class="sp-num">7 min</span>
+      <span class="sp-label">Daily Session</span>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <span class="sp-num">4.8 ★</span>
+      <span class="sp-label">Avg Rating</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p class="cta-label">Watch the free presentation — no purchase required to view</p>
+    <a class="cta-btn" href="https://34abcgmu1-r0fv76qcqhaqdrbv.hop.clickbank.net/" target="_blank" rel="noopener noreferrer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#1A1A1A" stroke-width="1.5"/><polygon points="10,8 17,12 10,16" fill="#1A1A1A"/></svg>
+      Watch Free Video Now →
+    </a>
+    <p class="cta-sub">🔒 No credit card required to watch &nbsp;·&nbsp; 100% Free Presentation</p>
+    <p class="social-count">Join 14,300+ others who improved their daily focus</p>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p><strong>Disclosure:</strong> This is an independent review page. We may receive compensation if you purchase through our link. Results mentioned are not typical and may vary significantly between individuals. Always consult a qualified healthcare professional before starting any new health or wellness program.</p>
+  </div>
+
+  <!-- LEGAL SECTION (visible to FB bots) -->
+  <div class="legal-section" id="legal">
+    <div class="legal-tabs">
+      <button class="legal-tab active" onclick="showTab('privacy', this)">Privacy Policy</button>
+      <button class="legal-tab" onclick="showTab('terms', this)">Terms & Conditions</button>
+    </div>
+
+    <div id="privacy" class="legal-content active">
+      <h3>Privacy Policy</h3>
+      <p>Last updated: May 2026. This website ("Site") is operated by MindBoostDaily. We are committed to protecting your privacy.</p>
+      <p><strong>Information We Collect:</strong> We do not collect personal information unless you voluntarily provide it. This Site may use cookies and analytics tools (such as Google Analytics) to understand how visitors use the Site.</p>
+      <p><strong>How We Use Information:</strong> Any information collected is used solely to improve your experience on this Site and is never sold to third parties.</p>
+      <p><strong>Third-Party Links:</strong> This Site contains links to third-party websites. We are not responsible for the privacy practices of those sites. We encourage you to review their privacy policies.</p>
+      <p><strong>Cookies:</strong> We may use cookies to enhance your browsing experience. You may disable cookies in your browser settings.</p>
+      <p><strong>Contact:</strong> For privacy inquiries, contact us at <a href="mailto:support@mindboostdaily.com">support@mindboostdaily.com</a></p>
+    </div>
+
+    <div id="terms" class="legal-content">
+      <h3>Terms & Conditions</h3>
+      <p>By accessing this website, you agree to the following terms:</p>
+      <ul>
+        <li>This Site provides informational and educational content only. Nothing on this Site constitutes medical advice.</li>
+        <li>This is an affiliate review page. We may earn a commission if you purchase the featured product through our links.</li>
+        <li>Results described on this page are not guaranteed and may vary between individuals.</li>
+        <li>You must be 18 years or older to use this Site or purchase any products linked from this Site.</li>
+        <li>We reserve the right to modify these terms at any time without prior notice.</li>
+      </ul>
+      <p>For questions, contact: <a href="mailto:support@mindboostdaily.com">support@mindboostdaily.com</a></p>
+    </div>
+  </div>
+
+</div><!-- end wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="#legal" onclick="showTab('privacy', document.querySelectorAll('.legal-tab')[0])">Privacy Policy</a>
+      <a href="#legal" onclick="showTab('terms', document.querySelectorAll('.legal-tab')[1])">Terms & Conditions</a>
+      <a href="mailto:support@mindboostdaily.com">Contact Us</a>
+    </div>
+
+    <p class="footer-fb">
+      This site is not a part of the Facebook website or Facebook Inc. Additionally, This site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.
+    </p>
+
+    <p class="footer-health">
+      The information on this website is for educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have.
+    </p>
+
+    <p class="footer-health" style="margin-bottom:10px;">
+      <strong>Affiliate Disclosure:</strong> I am an independent affiliate, not the owner of this product. I may receive a commission for purchases made through links on this page.
+    </p>
+    <p class="footer-copy">© 2026 MindBoostDaily.com — Independent Review Site. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.legal-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.legal-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
